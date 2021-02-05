@@ -26,3 +26,6 @@ export const getIsFetching = (state: AppStateType) => {
 export const getFetchingProcessing = (state: AppStateType) => {
   return state.usersPage.fetchingProcessing;
 };
+export const getUsersFilter = (state: AppStateType) => {
+  return state.usersPage.filter
+};

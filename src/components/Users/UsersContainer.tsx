@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import l from "../../assets/images/gifLoder.module.css";
 import Users from "./Users";
-import { follow, unfollow, getUsers } from "../../redux/users-reducer";
+import {follow, unfollow, getUsers, FilterType} from "../../redux/users-reducer";
 import { compose } from "redux";
 import {
   getPageSize,
@@ -10,7 +10,7 @@ import {
   getCurrentPage,
   getIsFetching,
   getFetchingProcessing,
-  getAllUsersSelector,
+  getAllUsersSelector, getUsersFilter,
 } from "../../redux/users-selector";
 import { UsersType } from "../../Types/Type";
 import { AppStateType } from "../../redux/redux-store";
@@ -26,19 +26,24 @@ type mapStateToPropsType ={
   totalCount: number
   users: Array<UsersType>
   fetchingProcessing:  Array<number>
+  filter: FilterType
 }
 type mapDispatchToPropsType ={
   follow: (userId: number)=> void
   unfollow: (userId: number)=> void
-  getUsers: (currentPage: number,    pageSize: number)=> void
+  getUsers: (currentPage: number, pageSize: number, filter: FilterType)=> void
 }
 class UsersContainer extends React.Component<PropsType> {
   
   componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    this.props.getUsers(this.props.currentPage, this.props.pageSize, this.props.filter);
   }
-  setCurrentPage = (pageNumber: number) => {
-    this.props.getUsers(pageNumber, this.props.pageSize);
+  setCurrentPage = (currentPage: number) => {
+    this.props.getUsers(currentPage, this.props.pageSize, this.props.filter);
+  };
+
+  onChangeFilter = (filter: FilterType,) => {
+     this.props.getUsers(1,this.props.pageSize, filter);
   };
   render() {
     // debugger
@@ -59,6 +64,7 @@ class UsersContainer extends React.Component<PropsType> {
           follow={this.props.follow}
           unfollow={this.props.unfollow}
           setCurrentPage={this.setCurrentPage}
+          onChangeFilter={this.onChangeFilter}
           fetchingProcessing={this.props.fetchingProcessing}
         />
       </>
@@ -75,6 +81,7 @@ let mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
     fetchingProcessing: getFetchingProcessing(state),
+    filter: getUsersFilter(state),
   };
 };
 export default compose(
