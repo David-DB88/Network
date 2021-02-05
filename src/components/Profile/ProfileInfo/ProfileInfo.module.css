@@ -1,0 +1,19 @@
+.descriptinoBlok {
+  padding: 10px;
+}
+
+.contacts {
+  padding-left: 10px;
+}
+.error input,
+.error textarea {
+  border: 2px red solid;
+}
+
+.error span {
+  color: red;
+}
+
+.errorMessage {
+  color: red;
+}

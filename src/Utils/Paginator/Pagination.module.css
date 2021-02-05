@@ -1,0 +1,56 @@
+/* .selectedPage {
+  font-weight: bold;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination span {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+  font-size: 22px;
+}
+
+.pagination span.active {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+.pagination span:hover:not(.active) {
+  background-color: #ddd;
+} */
+.pagination {
+  display: inline-block;
+}
+
+.pagination span {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.pagination span.active {
+  background-color: #4caf50;
+  color: rgb(243, 9, 9);
+  border: 1px solid #4caf50;
+}
+
+.pagination span:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination span:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination span:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

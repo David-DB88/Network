@@ -1,0 +1,23 @@
+.nav {
+  grid-area: n;
+  background-color: burlywood;
+  padding: 20px;
+}
+.item a {
+  color: white;
+  text-decoration: none;
+}
+.item a.activeLink {
+  color: gold;
+}
+
+.item a.friend {
+  color: rgb(99, 11, 241);
+  padding: 20px;
+  font-size: 50px;
+}
+.item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
