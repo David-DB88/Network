@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d8703d5-295b-409e-a200-374151b12848" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="8d8703d5-295b-409e-a200-374151b12848" name="Changes" comment="work space" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,8 +40,16 @@
       <workItem from="1645187295223" duration="420000" />
       <workItem from="1645188231010" duration="204000" />
       <workItem from="1645188477512" duration="2059000" />
-      <workItem from="1646753257289" duration="2017000" />
+      <workItem from="1646753257289" duration="2426000" />
     </task>
+    <task id="LOCAL-00001" summary="work space">
+      <created>1646758104130</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646758104130</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -62,6 +66,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="work space" />
+    <option name="LAST_COMMIT_MESSAGE" value="work space" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
