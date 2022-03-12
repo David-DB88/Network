@@ -44,6 +44,7 @@ const User: React.FC<PropsType> = ({ user, key, fetchingProcessing, unfollow, fo
               >
                 Follow
               </button>
+
             )}
           </div>
         </span>

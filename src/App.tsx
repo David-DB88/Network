@@ -8,12 +8,12 @@ import Settings from "./components/Settings/Settings";
 import l from "../src/assets/images/gifLoder.module.css";
 import ProfaileContainer from "./components/Profile/ProfaileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginContainer from "./components/Login/login";
 import { connect } from "react-redux";
 import { initializingApp } from "./redux/app-reducer";
 import { compose } from "redux";
 import { withSuspense } from "./HOC/withSuspense";
 import {AppStateType} from "./redux/redux-store";
+import {LoginPage} from "./components/Login/loginPage";
 
 const DialogsContainer = React.lazy(() =>
   import("./components/Dialogs/DialogsContainer")
@@ -63,7 +63,7 @@ class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
           <Route path="/news" render={() => <News/>} />
           <Route path="/music" render={() => <Music/>} />
           <Route path="/settings" render={() => <Settings/>} />
-          <Route path="/login" render={() => <LoginContainer/>} />
+          <Route path="/login" render={() => <LoginPage/>} />
           <Route path= "*" render= {()=><div>404 Some error</div>}/>
           </switch>
         </div>

@@ -5,7 +5,7 @@ import {
   maxLengthCreator,
 } from "../../../Utils/Validators/Validators";
  import {createField, Textarea} from "../../../Utils/FormControl/FormsControls";
-import {GetStringKeysType} from "../../Login/login";
+import {GetStringKeysType} from "../../Login/loginPage";
 
 const maxlength5 = maxLengthCreator(50);
 // const hocTextarea = WithInput("textarea");

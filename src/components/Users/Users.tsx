@@ -1,25 +1,47 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Pagination} from "../../Utils/Paginator/Pagination";
 import User from "./User";
-import {UsersType} from "../../Types/Type";
 import {UsersSearchForm} from "./UsersSearchForm";
-import {FilterType} from "../../redux/users-reducer";
+import {FilterType, follow, getUsers, unfollow} from "../../redux/users-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    getAllUsersSelector,
+    getCurrentPage, getFetchingProcessing,
+    getPageSize,
+    getTotalCount, getUsersFilter
+} from "../../redux/users-selector";
 
-type PropsType ={
-  totalCount: number,
-  pageSize: number,
-  setCurrentPage: (pageNumber: number)=>void,
-  users: Array<UsersType>
-  fetchingProcessing:  Array<number>
-  follow: (userId: number)=> void
-  unfollow: (userId: number)=> void
-    onChangeFilter: (filter: FilterType)=>void
+
+export  const Users = () => {
+
+const totalCount = useSelector(getTotalCount)
+const users = useSelector(getAllUsersSelector)
+const pageSize = useSelector(getPageSize)
+const currentPage = useSelector(getCurrentPage)
+const fetchingProcessing = useSelector(getFetchingProcessing)
+const filter = useSelector(getUsersFilter)
+
+const dispatch = useDispatch()
+
+
+ const    onChangeFilter = (filter: FilterType,) => {
+        dispatch(getUsers(1,pageSize, filter));
+};
+const  setCurrentPage = (currentPage: number) => {
+    dispatch(getUsers(currentPage, pageSize, filter));
+};
+
+const follows = (userId: number)=> {
+    dispatch(follow(userId))
+}
+const unfollows = (userId: number)=> {
+    dispatch(unfollow(userId))
 }
 
-const Users: React.FC<PropsType> = ({totalCount,pageSize,setCurrentPage,onChangeFilter,users, fetchingProcessing,follow, unfollow}) => {
+useEffect(()=>{
+    getUsers(currentPage, pageSize, filter);
 
-
-
+},[])
 
   return (
     <div>
@@ -37,8 +59,8 @@ const Users: React.FC<PropsType> = ({totalCount,pageSize,setCurrentPage,onChange
             user={u}
             key={u.id}
             fetchingProcessing={fetchingProcessing}
-            unfollow={unfollow}
-            follow={follow}
+            unfollow={unfollows}
+            follow={follows}
           />
         );
       })}
@@ -46,4 +68,3 @@ const Users: React.FC<PropsType> = ({totalCount,pageSize,setCurrentPage,onChange
   );
 };
 
-export default Users;

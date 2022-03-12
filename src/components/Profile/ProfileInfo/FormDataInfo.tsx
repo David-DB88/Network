@@ -4,7 +4,7 @@ import {createField} from "../../../Utils/FormControl/FormsControls";
 import {Input, Textarea} from "../../../Utils/FormControl/FormsControls";
 import e from "./ProfileInfo.module.css"
 import {ProfileType} from "../../../Types/Type";
-import {GetStringKeysType} from "../../Login/login";
+import {GetStringKeysType} from "../../Login/loginPage";
 
 // const hocInput = WithInput("input");
 // const hocTextarea = WithInput("textarea");
