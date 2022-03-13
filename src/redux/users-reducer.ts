@@ -98,14 +98,14 @@ type ThunkType = BaseThunkType<AtionTyps>
 type DispatchType = Dispatch<AtionTyps>
 
 
-export const getUsers = (pageNumber: number, pageSize: number, filter: FilterType): ThunkType => {
+export const getUsersSaga = (pageNumber: number, pageSize: number, filter: FilterType): ThunkType => {
     return async (dispatch) => {
         dispatch(actions.setCurrentPages(pageNumber));
 
         dispatch(actions.toggleIsFetching(true));
         dispatch(actions.setFilter(filter));
 
-        let data = await usersAPI.getUsers(pageNumber, pageSize, filter.term, filter.friend);
+        let data = await usersAPI.getUsersApi(pageNumber, pageSize, filter.term, filter.friend);
         dispatch(actions.setUsers(data.items));
         dispatch(actions.setTotalUsesr(data.totalCount));
         dispatch(actions.toggleIsFetching(false));

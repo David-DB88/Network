@@ -14,19 +14,20 @@ import { compose } from "redux";
 import { withSuspense } from "./HOC/withSuspense";
 import {AppStateType} from "./redux/redux-store";
 import {LoginPage} from "./components/Login/loginPage";
+import {UsersPage} from "./components/Users/UsersContainer";
 
 const DialogsContainer = React.lazy(() =>
   import("./components/Dialogs/DialogsContainer")
 );
-const UsersContainer = React.lazy(() =>
-  import("./components/Users/UsersContainer")
-);
+// const UsersContainer = React.lazy(() =>
+//   import("./components/Users/UsersContainer")
+// );
 type MapStatePropsType = ReturnType<typeof mapStateToProps>
 type MapDispatchPropsType = {
     initializingApp: () => void
 }
 const SuspensDialogs = withSuspense(DialogsContainer)
-const SuspensUsers = withSuspense(UsersContainer)
+// const SuspensUsers = withSuspense(UsersContainer)
 class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
     catchAllUnhandledErrors = (e: PromiseRejectionEvent)=>{
         alert("Some error occured")
@@ -59,8 +60,9 @@ class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
             exact
             path="/dialogs"
             render={() => <SuspensDialogs/>}/>
-          <Route path="/users" render={() => <SuspensUsers pageTitle={ 'Samurai'}/> } />
+          {/*<Route path="/users" render={() => <SuspensUsers pageTitle={ 'Samurai'}/> } />*/}
           <Route path="/news" render={() => <News/>} />
+          <Route path="/users" render={() => <UsersPage pageTitle={ 'Samurai'}/>} />
           <Route path="/music" render={() => <Music/>} />
           <Route path="/settings" render={() => <Settings/>} />
           <Route path="/login" render={() => <LoginPage/>} />

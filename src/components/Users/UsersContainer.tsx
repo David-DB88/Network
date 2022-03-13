@@ -9,7 +9,7 @@ import {Users} from "./Users";
 type UsersPageType ={
   pageTitle: string
 }
-const UsersPage: React.FC<UsersPageType> = (props) => {
+export const UsersPage: React.FC<UsersPageType> = (props) => {
   const isFetching = useSelector(getIsFetching)
   return<>
     <div>
@@ -21,4 +21,4 @@ const UsersPage: React.FC<UsersPageType> = (props) => {
     <Users/>
   </>
 }
-export default UsersPage
+// export default UsersPage

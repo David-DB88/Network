@@ -21,7 +21,6 @@ type NewMessageFormValuesKeysType =Extract<keyof NewMessageFormType, string>
 type PropsType = {}
 
 const Dialogs: React.FC<OwnPropsType>= (props) => {
-    debugger
     let state = props.dialogsPage
   let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} key={d.id} id={d.id} />
