@@ -20,6 +20,7 @@ import {Layout, Menu, Breadcrumb, Avatar} from 'antd';
 import {UserOutlined, LaptopOutlined, NotificationOutlined} from '@ant-design/icons';
 import s from "./components/Navbar/Navbar.module.css";
 import Header from "./components/Header/Header";
+import ChatPage from "./pages/Chat/ChatPage";
 
 const {SubMenu} = Menu;
 const {Content, Footer, Sider} = Layout;
@@ -35,6 +36,7 @@ type MapDispatchPropsType = {
     initializingApp: () => void
 }
 const SuspensDialogs = withSuspense(DialogsContainer)
+const SuspensChat = withSuspense(ChatPage)
 
 // const SuspensUsers = withSuspense(UsersContainer)
 class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
@@ -94,7 +96,9 @@ class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
                                         </Link>
                                     </Menu.Item>
                                     <Menu.Item key="6">
-
+                                        <Link to="/chat">
+                                            Chat
+                                        </Link>
                                     </Menu.Item>
                                     <Menu.Item key="7">
 
@@ -146,6 +150,7 @@ class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
                                 <Route path="/music" render={() => <Music/>}/>
                                 <Route path="/settings" render={() => <Settings/>}/>
                                 <Route path="/login" render={() => <LoginPage/>}/>
+                                <Route path="/chat" render={() => <SuspensChat/>}/>
                                 <Route path="*" render={() => <div>404 Some error</div>}/>
                             </switch>
                         </Content>
